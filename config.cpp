@@ -91,7 +91,19 @@ class CfgVehicles {
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Spawns units in random building positions.";
-			sync[] = {"EmptyDetector", "AnyAI"};
+			sync[] = {"LocationArea_F"};
+
+			class LocationArea_F
+			{
+				description[] = { // Multi-line descriptions are supported
+					"CQB area"
+				};
+				position = 0; // Position is taken into effect
+				direction = 0; // Direction is taken into effect
+				optional = 0; // Synced entity is optional
+				duplicate = 1; // Multiple entities of this type can be synced
+				sync[] = {"EmptyDetector", "AnyAI"};
+			};
 	 
 			class EmptyDetector
 			{

@@ -1,4 +1,4 @@
-private ["_logic", "_units", "_activated", "_number", "_alertness", "_spawns", "_combatMode", "_patrols"];
+private ["_logic", "_units", "_activated", "_number", "_alertness", "_areas", "_spawns", "_combatMode", "_patrols"];
 
 _logic     = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 _units     = [_this, 1, [], [[]]] call BIS_fnc_param;
@@ -7,6 +7,13 @@ _activated = [_this, 2, true, [true]] call BIS_fnc_param;
 if (_activated) then {
 	_number = (_logic getVariable "NumberOfEnemies");
 	_alertness = (_logic getVariable "EnemyAlertness");
+
+	_areas = [];
+	{
+		if (_x isKindOf "LocationArea_F") then {
+			_areas = _areas + [_x];
+		};
+	} forEach (synchronizedObjects _logic);
 
 	hint str [_number, _alertness];
 
@@ -31,8 +38,7 @@ if (_activated) then {
 		case 4: { _combatMode = "RED"; _patrols = _number; };
 	};
 
-	_spawns = _logic call HEHU_CQB_fnc_getSpawnsInLogic;
-	_spawns = [_spawns] call CBA_fnc_shuffle;
+	_spawns = [_areas] call HEHU_CQB_fnc_getSpawns;
 	[_spawns, _number, _patrols, _combatMode] call HEHU_CQB_fnc_spawn;
 };
 
