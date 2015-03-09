@@ -4,12 +4,7 @@ _logic = _this;
 _soldierTypes = [_logic] call HEHU_CQB_fnc_inferEnemyUnits;
 
 // Find triggers attached to this game logic
-_triggers = [];
-{
-	if (_x isKindOf "EmptyDetector") then {
-		_triggers = _triggers + [_x];
-	};
-} foreach (synchronizedObjects _logic);
+_triggers = [(synchronizedObjects _logic), { _x isKindOf "EmptyDetector" }] call CBA_fnc_select;
 
 // Find possible positions
 _positions = _triggers call HEHU_CQB_fnc_getBuildingPositionsInTriggerAreas;

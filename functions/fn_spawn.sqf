@@ -3,8 +3,6 @@ private ["_spawns", "_settings", "_numberOfEnemies", "_enemyPatrols", "_enemyCom
 _spawns = _this select 0;
 _settings = _this select 1;
 
-hint str _settings;
-
 _numberOfEnemies = _settings select 0;
 _enemyCombatMode = _settings select 1;
 _enemyPatrols = _settings select 2;
