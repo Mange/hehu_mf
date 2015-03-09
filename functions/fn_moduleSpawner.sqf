@@ -1,7 +1,6 @@
-private ["_logic", "_units", "_activated", "_number", "_alertness", "_areas", "_spawns", "_combatMode", "_patrols"];
+private ["_logic", "_activated", "_number", "_alertness", "_areas", "_spawns", "_combatMode", "_patrols"];
 
 _logic     = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_units     = [_this, 1, [], [[]]] call BIS_fnc_param;
 _activated = [_this, 2, true, [true]] call BIS_fnc_param;
 
 if (_activated) then {
@@ -14,8 +13,6 @@ if (_activated) then {
 			_areas = _areas + [_x];
 		};
 	} forEach (synchronizedObjects _logic);
-
-	hint str [_number, _alertness];
 
 	// TODO: Load global config in a better way
 	if (_number < 1) then { _number = 5; };

@@ -62,8 +62,6 @@ class CfgVehicles {
 
 		class Arguments: ArgumentsBaseUnits
 		{
-			// Arguments shared by specific module type (have to be mentioned in order to be placed on top)
-			class Units: Units {};
 			// Module specific arguments
 			class NumberOfEnemies
   			{
