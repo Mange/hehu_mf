@@ -1,0 +1,21 @@
+@echo off
+rem Save this as "make.bat" and set the variables. Then run it when you want to build the addon.
+
+rem Important: Don't use quotes when setting variables, even when the filename
+rem contains spaces!
+
+rem Where the addon should be placed after being built.
+set target_dir=E:\Arma stuff\addons
+
+rem Directory where the Arma 3 Tools from BIS is installed.
+set tools_dir=C:\Program Files (x86)\Steam\SteamApps\common\Arma 3 Tools
+
+
+
+rem Directory where the mod to be made is installed
+set source_dir=%~dp0
+
+rem Destination of temporary files
+set build_dir=%source_dir%build
+
+make_script.bat
