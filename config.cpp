@@ -47,7 +47,6 @@ class CfgVehicles {
 	class HEHU_CQB_ModuleSpawner: Module_F {
 		scope = 2; // Show in Editor menu
 		displayName = "Spawner";
-		// icon = "\foo\bar.paa" // TODO
 		category = "HEHU_CQB_Modules";
 
 		function = "HEHU_CQB_fnc_moduleSpawner";
@@ -127,6 +126,7 @@ class CfgFunctions {
 			file = "hehu_cqb\functions";
 			class init{};
 
+			class getSpawnerSettings{};
 			class moduleSpawner{};
 
 			class getBuildingPositionsInTriggerAreas{};

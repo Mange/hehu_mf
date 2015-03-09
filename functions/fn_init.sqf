@@ -2,34 +2,10 @@ private ["_triggers", "_positions", "_numberOfEnemies", "_enemyAlertness", "_ene
 
 if (isServer) then {
 	_logics = [_this, 0, [], [[]]] call BIS_fnc_param;
-
-	//
-	// Read mission parameters
-	//
-	_numberOfEnemies = ["NumberOfEnemies", 10] call BIS_fnc_getParamValue;
-
-	_enemyAlertness = ["EnemyAlertness", 0] call BIS_fnc_getParamValue;
-
-	_enemyCombatMode = "YELLOW";
-	_enemyPatrols = 0;
-
-	switch(_enemyAlertness) do {
-		// Stand still
-		case 0: { _enemyCombatMode = "YELLOW"; _enemyPatrols = 0; };
-		// Respond to threats
-		case 1: { _enemyCombatMode = "RED"; _enemyPatrols = 0; };
-		// Some will look for you
-		case 2: { _enemyCombatMode = "RED"; _enemyPatrols = _numberOfEnemies * 0.3; };
-		// Most will look for you
-		case 3: { _enemyCombatMode = "RED"; _enemyPatrols = _numberOfEnemies * 0.6; };
-		// All will look for you
-		case 4: { _enemyCombatMode = "RED"; _enemyPatrols = _numberOfEnemies; };
-	};
-
-	////////////////////////
+	_settings = [(_logics select 0)] call HEHU_CQB_fnc_getSpawnerSettings;
 
 	_spawns = [_logics] call HEHU_CQB_fnc_getSpawns;
-	[_spawns, _numberOfEnemies, _enemyPatrols, _enemyCombatMode] call HEHU_CQB_fnc_spawn;
+	[_spawns, _settings] call HEHU_CQB_fnc_spawn;
 };
 
 

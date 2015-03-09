@@ -1,9 +1,13 @@
-private ["_spawns", "_numberOfEnemies", "_enemyPatrols", "_enemyCombatMode", "_spawn", "_position", "_soldierType", "_patrolPositions"];
+private ["_spawns", "_settings", "_numberOfEnemies", "_enemyPatrols", "_enemyCombatMode", "_spawn", "_position", "_soldierType", "_patrolPositions"];
 
 _spawns = _this select 0;
-_numberOfEnemies = _this select 1;
-_enemyPatrols = _this select 2;
-_enemyCombatMode = _this select 3;
+_settings = _this select 1;
+
+hint str _settings;
+
+_numberOfEnemies = _settings select 0;
+_enemyCombatMode = _settings select 1;
+_enemyPatrols = _settings select 2;
 
 if (count _spawns < _numberOfEnemies) then {
 	_numberOfEnemies = count _spawns;
