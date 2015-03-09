@@ -115,6 +115,68 @@ class CfgVehicles {
 			};
 		};	
 	};
+
+	class HEHU_CQB_ModuleTargetCounter: Module_F {
+		scope = 2; // Show in Editor menu
+		displayName = "Target counter";
+		category = "HEHU_CQB_Modules";
+
+		function = "HEHU_CQB_fnc_moduleTargetCounter";
+		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+		functionPriority = 100;
+
+		// 0 for server only execution, 1 for remote execution on all clients upon mission start, 2 for persistent execution
+		isGlobal = 2;
+
+		isTriggerActivated = 0;
+		isDisposable = 1;
+
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Units: Units {};
+
+			// Module specific arguments
+			class Precision
+  			{
+				displayName = "Precision";
+				description = "How accurate the counter will be.";
+				typeName = "NUMBER";
+				class values
+				{
+					class Exact		{name = "Exact (number of enemies)"; value = 1; default = 1};
+					class Inexact	{name = "Inexact (few, many, etc.)"; value = 2;};
+					class Unhelpful	{name = "Unhelpful (enemies left, no enemies left)"; value = 3;};
+				};
+			};
+			class RefreshInterval
+  			{
+				displayName = "Refresh interval";
+				typeName = "NUMBER";
+				class values
+				{
+					class 100ms	{name = "100ms"; value = 0.1;};
+					class 1s	{name = "1s"; value = 1;};
+					class 2s	{name = "2s"; value = 2; default = 1};
+					class 3s	{name = "3s"; value = 3;};
+					class 4s	{name = "4s"; value = 4;};
+					class 5s	{name = "5s"; value = 5;};
+				};
+			};
+			class AutoHide
+  			{
+				displayName = "Stop when no enemies left";
+				description = "Should target counter disappear when no enemies are left?";
+				typeName = "BOOL";
+				defaultValue = false;
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription
+		{
+			description = "Shows number of enemies left to synchronized (or all) players.";
+			sync[] = {"AnyPlayer"};
+		};	
+	};
 };
 
 class CfgFunctions {
@@ -128,6 +190,7 @@ class CfgFunctions {
 
 			class getSpawnerSettings{};
 			class moduleSpawner{};
+			class moduleTargetCounter{};
 
 			class getBuildingPositionsInTriggerAreas{};
 			class getBuildingsInTriggerArea{};

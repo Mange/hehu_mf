@@ -19,8 +19,6 @@ if (!isServer) then {
 	sleep 15;
 };
 
-[] spawn HEHU_CQB_fnc_targetCounter;
-
 // Win the game when enemies are killed!
 waitUntil { [] call HEHU_CQB_fnc_aliveEnemies == 0; };
 sleep 0.5;
