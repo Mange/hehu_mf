@@ -54,7 +54,7 @@ class CfgVehicles {
 
 	class HEHU_CQB_Module: Module_F
 	{
-		scope = 2; // Show in Editor menu
+		scope = 0;
 		author = "Magnus Bergmark";
 		category = "HEHU_CQB_Modules";
 	};
@@ -63,6 +63,7 @@ class CfgVehicles {
 	{
 		displayName = "Spawner";
 		author = "Magnus Bergmark";
+		scope = 2;
 		function = "HEHU_CQB_fnc_moduleSpawner";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
@@ -134,6 +135,7 @@ class CfgVehicles {
 	{
 		displayName = "Target counter";
 		author = "Magnus Bergmark";
+		scope = 2;
 
 		function = "HEHU_CQB_fnc_moduleTargetCounter";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -196,6 +198,7 @@ class CfgVehicles {
 	{
 		displayName = "Automatic end game";
 		author = "Magnus Bergmark";
+		scope = 2;
 
 		function = "HEHU_CQB_fnc_moduleAutomaticEndGame";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
