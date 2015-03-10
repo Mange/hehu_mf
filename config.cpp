@@ -60,7 +60,7 @@ class CfgVehicles {
 		isTriggerActivated = 0;
 		isDisposable = 1;
 
-		class Arguments: ArgumentsBaseUnits
+		class Arguments
 		{
 			// Module specific arguments
 			class NumberOfEnemies
