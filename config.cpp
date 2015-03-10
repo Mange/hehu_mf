@@ -44,7 +44,8 @@ class CfgVehicles {
 		};
 	};
 
-	class HEHU_CQB_ModuleSpawner: Module_F {
+	class HEHU_CQB_ModuleSpawner: Module_F
+	{
 		scope = 2; // Show in Editor menu
 		displayName = "Spawner";
 		category = "HEHU_CQB_Modules";
@@ -116,7 +117,8 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ModuleTargetCounter: Module_F {
+	class HEHU_CQB_ModuleTargetCounter: Module_F
+	{
 		scope = 2; // Show in Editor menu
 		displayName = "Target counter";
 		category = "HEHU_CQB_Modules";
@@ -177,6 +179,29 @@ class CfgVehicles {
 			sync[] = {"AnyPlayer"};
 		};	
 	};
+
+	class HEHU_CQB_ModuleAutomaticEndGame: Module_F
+	{
+		scope = 2; // Show in Editor menu
+		displayName = "Automatic end game";
+		category = "HEHU_CQB_Modules";
+
+		function = "HEHU_CQB_fnc_moduleAutomaticEndGame";
+		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+		functionPriority = 100;
+
+		// 0 for server only execution, 1 for remote execution on all clients upon mission start, 2 for persistent execution
+		isGlobal = 2;
+
+		isTriggerActivated = 1;
+		isDisposable = 1;
+	
+		class ModuleDescription: ModuleDescription
+		{
+			description = "Ends the mission when all enemies are dead (and optional triggers are activated).";
+			sync[] = {};
+		};	
+	};
 };
 
 class CfgFunctions {
@@ -191,6 +216,7 @@ class CfgFunctions {
 			class getSpawnerSettings{};
 			class moduleSpawner{};
 			class moduleTargetCounter{};
+			class moduleAutomaticEndGame{};
 
 			class getBuildingPositionsInTriggerAreas{};
 			class getBuildingsInTriggerArea{};

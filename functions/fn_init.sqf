@@ -18,8 +18,3 @@ if (!isServer) then {
 	// should be enough, even with high lag and a LOT of units.
 	sleep 15;
 };
-
-// Win the game when enemies are killed!
-waitUntil { [] call HEHU_CQB_fnc_aliveEnemies == 0; };
-sleep 0.5;
-["END1", true, 7] call BIS_fnc_endMission;
