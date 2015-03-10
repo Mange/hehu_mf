@@ -6,11 +6,16 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"A3_Modules_F",
+			"A3_Weapons_F_Ammoboxes",
 			"cba_main"
 		};
 
 		units[] = {
-			"HEHU_CQB_ModuleSpawner"
+			"HEHU_CQB_Module",
+			"HEHU_CQB_ModuleSpawner",
+			"HEHU_CQB_ModuleTargetCounter",
+			"HEHU_CQB_ModuleAutomaticEndGame",
+			"HEHU_CQB_ArsenalBox"	
 		};
 
 		author[] = {"Magnus Bergmark"};
@@ -43,6 +48,9 @@ class CfgVehicles {
 			class AnyBrain;
 		};
 	};
+
+	class ReammoBox_F;
+	class Box_NATO_AmmoVeh_F;
 
 	class HEHU_CQB_Module: Module_F
 	{
@@ -204,6 +212,17 @@ class CfgVehicles {
 			description = "Ends the mission when all enemies are dead (and optional triggers are activated).";
 			sync[] = {};
 		};	
+	};
+
+	class HEHU_CQB_ArsenalBox: Box_NATO_AmmoVeh_F
+	{
+		displayName = "HEHU Ammo box";
+		author = "Magnus Bergmark";
+		scope = 2;
+		class Eventhandlers
+		{
+			init = "[""AmmoboxInit"",[(_this select 0), true]] spawn BIS_fnc_arsenal;";
+		};
 	};
 };
 
