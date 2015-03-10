@@ -13,7 +13,7 @@ class CfgPatches
 			"HEHU_CQB_ModuleSpawner"
 		};
 
-		author[] = {"Mange"};
+		author[] = {"Magnus Bergmark"};
 		authorUrl = "https://github.com/Mange";
 
 		version = 0.0.1;
@@ -44,12 +44,17 @@ class CfgVehicles {
 		};
 	};
 
-	class HEHU_CQB_ModuleSpawner: Module_F
+	class HEHU_CQB_Module: Module_F
 	{
 		scope = 2; // Show in Editor menu
-		displayName = "Spawner";
+		author = "Magnus Bergmark";
 		category = "HEHU_CQB_Modules";
+	};
 
+	class HEHU_CQB_ModuleSpawner: HEHU_CQB_Module
+	{
+		displayName = "Spawner";
+		author = "Magnus Bergmark";
 		function = "HEHU_CQB_fnc_moduleSpawner";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
@@ -117,11 +122,10 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ModuleTargetCounter: Module_F
+	class HEHU_CQB_ModuleTargetCounter: HEHU_CQB_Module
 	{
-		scope = 2; // Show in Editor menu
 		displayName = "Target counter";
-		category = "HEHU_CQB_Modules";
+		author = "Magnus Bergmark";
 
 		function = "HEHU_CQB_fnc_moduleTargetCounter";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -180,11 +184,10 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ModuleAutomaticEndGame: Module_F
+	class HEHU_CQB_ModuleAutomaticEndGame: HEHU_CQB_Module
 	{
-		scope = 2; // Show in Editor menu
 		displayName = "Automatic end game";
-		category = "HEHU_CQB_Modules";
+		author = "Magnus Bergmark";
 
 		function = "HEHU_CQB_fnc_moduleAutomaticEndGame";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
