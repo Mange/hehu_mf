@@ -1,10 +1,8 @@
 /*
- * Infer enemy units.
- * Do this by looking for the "mf_units" Game Logic, and the units synchronized to it.
+ * Infer units to be placed by CQB module.
+ * Do this by looking at the units synchronized to passed game logic and remove them from the mission.
  *
- * If Game Logic cannot be found, or if no units are synchronized to it, fall back to a simple default.
- *
- * Return type is an array of unit types to select from.
+ * If no units are synchronized to it, fall back to a simple default.
  */
 private ["_default", "_gameLogic", "_units"];
 _gameLogic = _this select 0;

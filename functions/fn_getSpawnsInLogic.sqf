@@ -1,7 +1,7 @@
 private ["_logic", "_soldierTypes", "_triggers", "_positions", "_position", "_unitType", "_patrolPositions"];
 _logic = _this;
 
-_soldierTypes = [_logic] call HEHU_MF_fnc_inferEnemyUnits;
+_soldierTypes = [_logic] call HEHU_MF_fnc_inferCQBUnits;
 
 // Find triggers attached to this game logic
 _triggers = [(synchronizedObjects _logic), { _x isKindOf "EmptyDetector" }] call CBA_fnc_select;

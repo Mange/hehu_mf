@@ -12,7 +12,7 @@ class CfgPatches
 
 		units[] = {
 			"HEHU_MF_Module",
-			"HEHU_MF_ModuleSpawner",
+			"HEHU_MF_ModuleCQBSpawner",
 			"HEHU_MF_ModuleTargetCounter",
 			"HEHU_MF_ModuleAutomaticEndGame",
 			"HEHU_MF_ArsenalBox"	
@@ -58,12 +58,12 @@ class CfgVehicles {
 		category = "HEHU_MF_Modules";
 	};
 
-	class HEHU_MF_ModuleSpawner: HEHU_MF_Module
+	class HEHU_MF_ModuleCQBSpawner: HEHU_MF_Module
 	{
-		displayName = "Spawner";
+		displayName = "CQB Spawner";
 		author = "Magnus Bergmark";
 		scope = 2;
-		function = "HEHU_MF_fnc_moduleSpawner";
+		function = "HEHU_MF_fnc_moduleCQBSpawner";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 
@@ -252,27 +252,44 @@ class CfgFunctions {
 		{
 			file = "hehu_mf\functions";
 
-			// Utilities
-			class aliveEnemies{};
-			class findBuildings{};
-			class findBuildingPositions{};
+			/* Utilities */
+			class aliveEnemies{};          // Number of alive units that local player is unfriendly to.
+			class findBuildings{};         // Find buildings within an area.
+			class findBuildingPositions{}; // Find building positions within an area.
+			class spawnUnit{};             // Creates a lone unit, with the proper Side.
+			class setupPatrol{};           // Takes unit and three positions; sets up patrol between them
 
-			// Spawner module
-			class moduleSpawner{};
-			class inferEnemyUnits{};
-			class getSpawnerSettings{};
-			class getSpawns{};
-			class getSpawnsInLogic{};
-			class spawn{};
-			class spawnUnit{};
-			class setupPatrol{};
+			/*
+				CQB Spawner module
+			Works on game logics, modules, units and triggers. In order to decouple as much as
+			possible, most actions take place in two stages:
+				1. Gather information
+				2. Act on the information
+			The information exchange is a "Spawnee", which is a data structure like this:
+				[
+					position, <Normal position for where to spawn>
+					unit_type, <"O_Soldier_F", for example>
+					[position...], <array of Positions to patrol>
+				]
+			Multiple "Spawnees" are called "Spawns".
+			*/
+			class moduleCQBSpawner{};
+			// utility functions
+			class inferCQBUnits{};      // Removes editor-placed units and returns their types.
+			class getSpawnerSettings{}; // Resolve actual settings for a Spawner module, with defaults filled in.
+			class getSpawns{};          // Get "Spawnees" for a Spawner module.
+			class getSpawnsInLogic{};   // Get "Spawnees" for a specific game logic.
+			// spawning functions
+			class spawn{};     // Takes a "Spawnee" and spawns (create) it, setting up patrols, etc.
+			class spawnCQBUnit{}; // Creates a unit for CQB.
+			/**/
 
-			// Target counter module
-			class moduleTargetCounter{};
-			class targetCounter{};
+			/* Target counter module */
+			class moduleTargetCounter{}; // Read target counter options and call it.
+			class targetCounter{};       // Display the actual target counter.
 			
-			// Automatic end game module
-			class moduleAutomaticEndGame{};
+			/* Automatic end game module */
+			class moduleAutomaticEndGame{}; // End the game when aliveEnemies are 0.
 		};
 	};
 };
