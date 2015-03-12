@@ -252,23 +252,27 @@ class CfgFunctions {
 		{
 			file = "hehu_mf\functions";
 
-			class getSpawnerSettings{};
-			class moduleSpawner{};
-			class moduleTargetCounter{};
-			class moduleAutomaticEndGame{};
-
-			class getBuildingPositionsInTriggerAreas{};
+			// Utilities
+			class aliveEnemies{};
 			class findBuildings{};
+			class findBuildingPositions{};
 
+			// Spawner module
+			class moduleSpawner{};
 			class inferEnemyUnits{};
+			class getSpawnerSettings{};
 			class getSpawns{};
 			class getSpawnsInLogic{};
 			class spawn{};
 			class spawnUnit{};
 			class setupPatrol{};
 
-			class aliveEnemies{};
+			// Target counter module
+			class moduleTargetCounter{};
 			class targetCounter{};
+			
+			// Automatic end game module
+			class moduleAutomaticEndGame{};
 		};
 	};
 };

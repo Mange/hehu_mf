@@ -7,7 +7,7 @@ _soldierTypes = [_logic] call HEHU_MF_fnc_inferEnemyUnits;
 _triggers = [(synchronizedObjects _logic), { _x isKindOf "EmptyDetector" }] call CBA_fnc_select;
 
 // Find possible positions
-_positions = _triggers call HEHU_MF_fnc_getBuildingPositionsInTriggerAreas;
+_positions = _triggers call HEHU_MF_fnc_findBuildingPositions;
 
 //
 // Build up spawns
