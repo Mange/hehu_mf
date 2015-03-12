@@ -225,7 +225,7 @@ class CfgVehicles {
 		//   class ReammoBox_F;
 		//      class Box_NATO_Wps_F;
 		//
-		// TODO: Is it possible to sling load this box? What would be required to make that work?
+		// TODO: Make it possible to sling load this box, or make a variant that is.
 
 		vehicleclass = "Ammo";  // ReammoBox_F
 		animated = 0;           // ReammoBox_F
