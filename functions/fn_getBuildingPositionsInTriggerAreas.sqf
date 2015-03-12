@@ -5,8 +5,9 @@ _positions = [];
 {
 	_buildingsInTrigger = [_x] call HEHU_MF_fnc_getBuildingsInTriggerArea;
 	{
-		_positions = _positions + (_x call HEHU_MF_fnc_getAllBuildingPositions);
+		_positions = _positions + ([_x] call BIS_fnc_buildingPositions);
 	} foreach _buildingsInTrigger;
+
 } foreach (_triggers);
 
 _positions

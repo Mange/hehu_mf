@@ -261,8 +261,6 @@ class CfgFunctions {
 			class getBuildingPositionsInTriggerAreas{};
 			class getBuildingsInTriggerArea{};
 
-			class getAllBuildingPositions{};
-
 			class inferEnemyUnits{};
 			class getSpawns{};
 			class getSpawnsInLogic{};
