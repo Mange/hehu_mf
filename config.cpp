@@ -259,7 +259,7 @@ class CfgFunctions {
 			class moduleAutomaticEndGame{};
 
 			class getBuildingPositionsInTriggerAreas{};
-			class getBuildingsInTriggerArea{};
+			class findBuildings{};
 
 			class inferEnemyUnits{};
 			class getSpawns{};
