@@ -1,6 +1,6 @@
 /*
  * Infer enemy units.
- * Do this by looking for the "cqb_units" Game Logic, and the units synchronized to it.
+ * Do this by looking for the "mf_units" Game Logic, and the units synchronized to it.
  *
  * If Game Logic cannot be found, or if no units are synchronized to it, fall back to a simple default.
  *

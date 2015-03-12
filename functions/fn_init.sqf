@@ -2,10 +2,10 @@ private ["_triggers", "_positions", "_numberOfEnemies", "_enemyAlertness", "_ene
 
 if (isServer) then {
 	_logics = [_this, 0, [], [[]]] call BIS_fnc_param;
-	_settings = [(_logics select 0)] call HEHU_CQB_fnc_getSpawnerSettings;
+	_settings = [(_logics select 0)] call HEHU_MF_fnc_getSpawnerSettings;
 
-	_spawns = [_logics] call HEHU_CQB_fnc_getSpawns;
-	[_spawns, _settings] call HEHU_CQB_fnc_spawn;
+	_spawns = [_logics] call HEHU_MF_fnc_getSpawns;
+	[_spawns, _settings] call HEHU_MF_fnc_spawn;
 };
 
 

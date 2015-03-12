@@ -55,7 +55,7 @@ _showTargetCounter = switch(_precision) do {
 
 
 while {true} do {
-	_totalEnemies = [] call HEHU_CQB_fnc_aliveEnemies;
+	_totalEnemies = [] call HEHU_MF_fnc_aliveEnemies;
 	_totalEnemies call _showTargetCounter;
 	if (_autoHide && _totalEnemies == 0) exitWith {};
 	sleep _refreshInterval;

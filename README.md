@@ -1,10 +1,10 @@
-# @hehu_cqb (Arma 3 addon)
+# @hehu_mf (Arma 3 addon)
 
-> CQB Mission making framework
+> HEHU Mission Framework
 
 ## Features
 
-* Mission making framework for building CQB missions, using modules.
+* Mission making framework for building missions, using modules.
 * Random placement of units in buildings inside a trigger area.
   * Unit type randomized from editor-placed set.
 * Module for displaying target counter.

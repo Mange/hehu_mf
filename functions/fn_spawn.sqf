@@ -18,11 +18,11 @@ for "_i" from 0 to (_numberOfEnemies - 1) do {
     _soldierType = _spawn select 1;
     _patrolPositions = _spawn select 2;
 
-    _unit = [_soldierType, _position] call HEHU_CQB_fnc_spawnUnit;
+    _unit = [_soldierType, _position] call HEHU_MF_fnc_spawnUnit;
     _unit setCombatMode _enemyCombatMode;
 
     if (_i < _enemyPatrols) then {
-    	[_unit, _position, _patrolPositions] call HEHU_CQB_fnc_setupPatrol;
+    	[_unit, _position, _patrolPositions] call HEHU_MF_fnc_setupPatrol;
     };
 
     sleep 0.1;

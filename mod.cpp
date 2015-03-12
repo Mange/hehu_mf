@@ -1,4 +1,4 @@
-dir = "@hehu_cqb";
-name = "HEHU CQB v0.1";
+dir = "@hehu_mf";
+name = "HEHU Mission Framework v0.1";
 actionName = "Source code";
-action = "https://github.com/Mange/hehu_cqb";
+action = "https://github.com/Mange/hehu_mf";

@@ -17,7 +17,7 @@ if (_activated) then {
 		_precision = (_logic getVariable "Precision");
 		_autoHide = (_logic getVariable "AutoHide");
 
-		[_refreshInterval, _precision, _autoHide] spawn HEHU_CQB_fnc_targetCounter;
+		[_refreshInterval, _precision, _autoHide] spawn HEHU_MF_fnc_targetCounter;
 	};
 };
 

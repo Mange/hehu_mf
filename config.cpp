@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class HEHU_CQB
+	class HEHU_MF
 	{
 		requiredVersion=1.0;
 		requiredAddons[]=
@@ -11,11 +11,11 @@ class CfgPatches
 		};
 
 		units[] = {
-			"HEHU_CQB_Module",
-			"HEHU_CQB_ModuleSpawner",
-			"HEHU_CQB_ModuleTargetCounter",
-			"HEHU_CQB_ModuleAutomaticEndGame",
-			"HEHU_CQB_ArsenalBox"	
+			"HEHU_MF_Module",
+			"HEHU_MF_ModuleSpawner",
+			"HEHU_MF_ModuleTargetCounter",
+			"HEHU_MF_ModuleAutomaticEndGame",
+			"HEHU_MF_ArsenalBox"	
 		};
 
 		author[] = {"Magnus Bergmark"};
@@ -31,9 +31,9 @@ class CfgPatches
 class CfgFactionClasses
 {
 	class NO_CATEGORY;
-	class HEHU_CQB_Modules: NO_CATEGORY
+	class HEHU_MF_Modules: NO_CATEGORY
 	{
-		displayName = "CQB";
+		displayName = "HEHU Mission Framework";
 	};
 };
 
@@ -51,19 +51,19 @@ class CfgVehicles {
 
 	class thingX;
 
-	class HEHU_CQB_Module: Module_F
+	class HEHU_MF_Module: Module_F
 	{
 		scope = 0;
 		author = "Magnus Bergmark";
-		category = "HEHU_CQB_Modules";
+		category = "HEHU_MF_Modules";
 	};
 
-	class HEHU_CQB_ModuleSpawner: HEHU_CQB_Module
+	class HEHU_MF_ModuleSpawner: HEHU_MF_Module
 	{
 		displayName = "Spawner";
 		author = "Magnus Bergmark";
 		scope = 2;
-		function = "HEHU_CQB_fnc_moduleSpawner";
+		function = "HEHU_MF_fnc_moduleSpawner";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 
@@ -107,7 +107,7 @@ class CfgVehicles {
 			class LocationArea_F
 			{
 				description[] = { // Multi-line descriptions are supported
-					"CQB area"
+					"CQB area, with independent unit combinations and positions."
 				};
 				position = 0; // Position is taken into effect
 				direction = 0; // Direction is taken into effect
@@ -130,13 +130,13 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ModuleTargetCounter: HEHU_CQB_Module
+	class HEHU_MF_ModuleTargetCounter: HEHU_MF_Module
 	{
 		displayName = "Target counter";
 		author = "Magnus Bergmark";
 		scope = 2;
 
-		function = "HEHU_CQB_fnc_moduleTargetCounter";
+		function = "HEHU_MF_fnc_moduleTargetCounter";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 100;
 
@@ -193,13 +193,13 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ModuleAutomaticEndGame: HEHU_CQB_Module
+	class HEHU_MF_ModuleAutomaticEndGame: HEHU_MF_Module
 	{
 		displayName = "Automatic end game";
 		author = "Magnus Bergmark";
 		scope = 2;
 
-		function = "HEHU_CQB_fnc_moduleAutomaticEndGame";
+		function = "HEHU_MF_fnc_moduleAutomaticEndGame";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 100;
 
@@ -216,7 +216,7 @@ class CfgVehicles {
 		};	
 	};
 
-	class HEHU_CQB_ArsenalBox: thingX
+	class HEHU_MF_ArsenalBox: thingX
 	{
 		// Don't inherit from a real ammo box to remove the vanilla inventory from them.
 		// You can only interact with this box as a Virtual Arsenal object.
@@ -245,12 +245,12 @@ class CfgVehicles {
 };
 
 class CfgFunctions {
-	class HEHU_CQB
+	class HEHU_MF
 	{
-		tag = "HEHU_CQB";
-		class HEHU_CQB_funcs
+		tag = "HEHU_MF";
+		class HEHU_MF_funcs
 		{
-			file = "hehu_cqb\functions";
+			file = "hehu_mf\functions";
 			class init{};
 
 			class getSpawnerSettings{};

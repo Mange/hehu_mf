@@ -6,9 +6,10 @@ _logic = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 _numberOfEnemies = (_logic getVariable "NumberOfEnemies");
 
 if (isNil "_numberOfEnemies" || _numberOfEnemies < 1) then {
+	// TODO: Rename variables to something less "global"
 	// Try to read from global variable, then from mission parameters
-	if (!isNil "HEHU_CQB_defaultNumberOfEnemies") then {
-		_numberOfEnemies = HEHU_CQB_defaultNumberOfEnemies;
+	if (!isNil "HEHU_MF_defaultNumberOfEnemies") then {
+		_numberOfEnemies = HEHU_MF_defaultNumberOfEnemies;
 	} else {
 		_numberOfEnemies = ["NumberOfEnemies", 10] call BIS_fnc_getParamValue;
 	};
@@ -19,8 +20,8 @@ _alertnessNumber = (_logic getVariable "EnemyAlertness");
 
 if (_alertnessNumber < 1) then {
 	// Try to read from global variable, then from mission parameters
-	if (!isNil "HEHU_CQB_defaultAlertnessNumber") then {
-		_alertnessNumber = HEHU_CQB_defaultAlertnessNumber;
+	if (!isNil "HEHU_MF_defaultAlertnessNumber") then {
+		_alertnessNumber = HEHU_MF_defaultAlertnessNumber;
 	} else {
 		_alertnessNumber = ["EnemyAlertness", 0] call BIS_fnc_getParamValue;
 	};

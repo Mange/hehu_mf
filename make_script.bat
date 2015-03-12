@@ -1,26 +1,26 @@
 @echo off
 if not defined build_dir goto :missing_variables
 
-mkdir "%build_dir%\hehu_cqb\functions"
+mkdir "%build_dir%\hehu_mf\functions"
 
 pushd %tools_dir%\binmake
 @echo on
-binmake.exe "%source_dir%\config.cpp" "%build_dir%\hehu_cqb\config.bin"
+binmake.exe "%source_dir%\config.cpp" "%build_dir%\hehu_mf\config.bin"
 @echo off
 popd
 
 @echo on
-copy "%source_dir%\functions\" "%build_dir%\hehu_cqb\functions"
+copy "%source_dir%\functions\" "%build_dir%\hehu_mf\functions"
 
-"%tools_dir%\filebank\filebank.exe" -property prefix=hehu_cqb "%build_dir%\hehu_cqb"
+"%tools_dir%\filebank\filebank.exe" -property prefix=hehu_mf "%build_dir%\hehu_mf"
 
 @echo off
-mkdir "%target_dir%\@hehu_cqb\addons"
+mkdir "%target_dir%\@hehu_mf\addons"
 
 @echo on
-copy "%build_dir%\hehu_cqb.pbo" "%target_dir%\@hehu_cqb\addons"
-copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_cqb"
-copy "%source_dir%\README.md" "%target_dir%\@hehu_cqb\readme.txt"
+copy "%build_dir%\hehu_mf.pbo" "%target_dir%\@hehu_mf\addons"
+copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_mf"
+copy "%source_dir%\README.md" "%target_dir%\@hehu_mf\readme.txt"
 
 pause
 exit 0
