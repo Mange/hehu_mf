@@ -251,7 +251,6 @@ class CfgFunctions {
 		class HEHU_MF_funcs
 		{
 			file = "hehu_mf\functions";
-			class init{};
 
 			class getSpawnerSettings{};
 			class moduleSpawner{};
