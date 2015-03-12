@@ -278,7 +278,8 @@ class CfgFunctions {
 			class inferCQBUnits{};      // Removes editor-placed units and returns their types.
 			class getSpawnerSettings{}; // Resolve actual settings for a Spawner module, with defaults filled in.
 			class getSpawns{};          // Get "Spawnees" for a Spawner module.
-			class getSpawnsInLogic{};   // Get "Spawnees" for a specific game logic.
+			class getSpawnsInCQBBase{}; // Get "Spawnees" for a specific "Base" game logic.
+			class getSpawnsInCQBArea{}; // Get "Spawnees" for a specific "Area" game logic.
 			// spawning functions
 			class spawn{};     // Takes a "Spawnee" and spawns (create) it, setting up patrols, etc.
 			class spawnCQBUnit{}; // Creates a unit for CQB.
