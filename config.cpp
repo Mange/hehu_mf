@@ -193,6 +193,102 @@ class CfgVehicles {
 		};	
 	};
 
+	class HEHU_MF_ModuleUnitLocator: HEHU_MF_Module
+	{
+		displayName = "Unit locator";
+		author = "Magnus Bergmark";
+		scope = 2;
+
+		function = "HEHU_MF_fnc_moduleUnitLocator";
+		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+		functionPriority = 100;
+
+		// 0 for server only execution, 1 for remote execution on all clients upon mission start, 2 for persistent execution
+		isGlobal = 2;
+
+		isTriggerActivated = 1;
+		isDisposable = 1;
+
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Units: Units {};
+
+			// Module specific arguments
+			class Precision
+  			{
+				displayName = "Precision";
+				description = "How precise should the locator be.";
+				typeName = "NUMBER";
+				class values
+				{
+					class Exact          {name = "Exact"; value = 1;};
+					class Accurate       {name = "Accurate"; value = 2; default = 1};
+					class Inaccurate     {name = "Inaccurate"; value = 3;};
+					class VeryInaccurate {name = "Very inaccurate"; value = 4;};
+				};
+			};
+			class RefreshInterval
+  			{
+				displayName = "Refresh interval";
+				typeName = "NUMBER";
+				class values
+				{
+					class 250ms	{name = "250ms"; value = 0.25;};
+					class 500ms	{name = "500ms"; value = 0.5;};
+					class 1s	{name = "1s"; value = 1;};
+					class 2s	{name = "2s"; value = 2; default = 1};
+					class 3s	{name = "3s"; value = 3;};
+					class 4s	{name = "4s"; value = 4;};
+					class 5s	{name = "5s"; value = 5;};
+				};
+			};
+
+			class NumberOfUnits
+  			{
+				displayName = "Maximum units alive";
+				description = "Only display after this amount of units are alive. (Counts all selected unit types; enter 0 for Always)";
+				typeName = "NUMBER";
+				defaultValue = 2;
+			};
+
+			class LocatorType
+  			{
+				displayName = "Type";
+				description = "How should the enemies be located?";
+				typeName = "NUMBER";
+				class values
+				{
+					class Markers {name = "Markers"; value = 1; default = 1};
+					// TODO: Add more locator types
+				};
+			};
+
+			class LocateUnits
+  			{
+				displayName = "Units to locate";
+				description = "What kinds of units should be located?";
+				typeName = "NUMBER";
+				class values
+				{
+					class NonPlayers {name = "Non-players"; value = 1;};
+					class Players    {name = "Players"; value = 2;};
+					class Enemies    {name = "Enemies"; value = 3; default = 1};
+					class Civilians  {name = "Civilians"; value = 4;};
+					class West       {name = "BLUFOR"; value = 5;};
+					class East       {name = "OPFOR"; value = 6;};
+					class Ind        {name = "Idenpendent"; value = 7;};
+					class Everyone   {name = "Everyone"; value = 8;};
+				};
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription
+		{
+			description = "Shows alive units to synchronized (or all) players.";
+			sync[] = {"AnyPlayer"};
+		};	
+	};
+
 	class HEHU_MF_ModuleAutomaticEndGame: HEHU_MF_Module
 	{
 		displayName = "Automatic end game";
@@ -255,6 +351,7 @@ class CfgFunctions {
 			/* Utilities */
 			class aliveEnemies{};          // Number of alive units that local player is unfriendly to.
 			class isEnemyToPlayer{};       // True if passed unit is an enemy of the player.
+			class randomizePosition{};     // Adds a random offset to a position.
 			class findBuildings{};         // Find buildings within an area.
 			class findBuildingPositions{}; // Find building positions within an area.
 			class spawnUnit{};             // Creates a lone unit, with the proper Side.
@@ -289,7 +386,12 @@ class CfgFunctions {
 			/* Target counter module */
 			class moduleTargetCounter{}; // Read target counter options and call it.
 			class targetCounter{};       // Display the actual target counter.
-			
+
+			/* Unit locator module */			
+			class moduleUnitLocator{}; // Read unit locator options and start it.
+			class startUnitLocator{}; // Show position of units.
+			class startUnitLocatorMarkers{}; // Show position of units using map markers.
+
 			/* Automatic end game module */
 			class moduleAutomaticEndGame{}; // End the game when aliveEnemies are 0.
 		};
