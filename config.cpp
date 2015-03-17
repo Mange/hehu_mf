@@ -254,6 +254,7 @@ class CfgFunctions {
 
 			/* Utilities */
 			class aliveEnemies{};          // Number of alive units that local player is unfriendly to.
+			class isEnemyToPlayer{};       // True if passed unit is an enemy of the player.
 			class findBuildings{};         // Find buildings within an area.
 			class findBuildingPositions{}; // Find building positions within an area.
 			class spawnUnit{};             // Creates a lone unit, with the proper Side.
