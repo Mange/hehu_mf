@@ -14,6 +14,7 @@ class CfgPatches
 			"HEHU_MF_Module",
 			"HEHU_MF_ModuleCQBSpawner",
 			"HEHU_MF_ModuleTargetCounter",
+			"HEHU_MF_ModuleUnitLocator",
 			"HEHU_MF_ModuleAutomaticEndGame",
 			"HEHU_MF_ArsenalBox"	
 		};
@@ -207,7 +208,7 @@ class CfgVehicles {
 		isGlobal = 2;
 
 		isTriggerActivated = 1;
-		isDisposable = 1;
+		isDisposable = 0;
 
 		class Arguments: ArgumentsBaseUnits
 		{
