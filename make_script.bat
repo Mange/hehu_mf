@@ -22,7 +22,6 @@ copy "%build_dir%\hehu_mf.pbo" "%target_dir%\@hehu_mf\addons"
 copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_mf"
 copy "%source_dir%\README.md" "%target_dir%\@hehu_mf\readme.txt"
 
-pause
 exit 0
 
 :missing_variables
