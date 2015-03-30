@@ -22,9 +22,9 @@ class CfgPatches
 		author[] = {"Magnus Bergmark"};
 		authorUrl = "https://github.com/Mange";
 
-		version = 0.0.1;
-		versionStr = "0.0.1";
-		versionAr[] = {0,0,1};
+		version = 1.0.0;
+		versionStr = "1.0.0";
+		versionAr[] = {1,0,0};
 	};
 };
 
