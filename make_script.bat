@@ -10,6 +10,7 @@ binmake.exe "%source_dir%\config.cpp" "%build_dir%\hehu_mf\config.bin"
 popd
 
 @echo on
+copy "%source_dir%\CQB_Params.hpp" "%build_dir%\hehu_mf\"
 copy "%source_dir%\functions\" "%build_dir%\hehu_mf\functions"
 
 "%tools_dir%\filebank\filebank.exe" -property prefix=hehu_mf "%build_dir%\hehu_mf"

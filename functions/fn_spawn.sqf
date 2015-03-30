@@ -1,17 +1,17 @@
-private ["_spawns", "_settings", "_numberOfEnemies", "_enemyPatrols", "_enemyCombatMode", "_spawn", "_position", "_soldierType", "_patrolPositions"];
+private ["_spawns", "_settings", "_numberOfUnits", "_enemyPatrols", "_enemyCombatMode", "_spawn", "_position", "_soldierType", "_patrolPositions"];
 
 _spawns = _this select 0;
 _settings = _this select 1;
 
-_numberOfEnemies = _settings select 0;
+_numberOfUnits = _settings select 0;
 _enemyCombatMode = _settings select 1;
 _enemyPatrols = _settings select 2;
 
-if (count _spawns < _numberOfEnemies) then {
-	_numberOfEnemies = count _spawns;
+if (count _spawns < _numberOfUnits) then {
+	_numberOfUnits = count _spawns;
 };
 
-for "_i" from 0 to (_numberOfEnemies - 1) do {
+for "_i" from 0 to (_numberOfUnits - 1) do {
 	_spawn = _spawns select _i;
 
     _position = _spawn select 0;

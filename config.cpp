@@ -77,25 +77,25 @@ class CfgVehicles {
 		class Arguments
 		{
 			// Module specific arguments
-			class NumberOfEnemies
+			class NumberOfUnits
   			{
-				displayName = "Number of enemies";
-				description = "0 means choose from global config.";
+				displayName = "Number of units";
+				description = "0 means choose from global config / script variable.";
 				typeName = "NUMBER";
 				defaultValue = "0";
 			};
-			class EnemyAlertness
+			class UnitAlertness
   			{
-				displayName = "Enemy alertness";
+				displayName = "Unit alertness";
 				typeName = "NUMBER";
 				class values
 				{
 					class UseDefault		{name = "Use global config"; value = -1; default = 1;};
 					class StandStill		{name = "Stand still"; value = 0;};
 					class RespondThreats	{name = "Respond to threats"; value = 1;};
-					class SomePatrol		{name = "Some will look for you"; value = 2;};
-					class MostPatrol		{name = "Most will look for you"; value = 3;};
-					class AllPatrol			{name = "All will look for you"; value = 4;};
+					class SomePatrol		{name = "Some will patrol"; value = 2;};
+					class MostPatrol		{name = "Most will patrol"; value = 3;};
+					class AllPatrol			{name = "Everyone patrols"; value = 4;};
 				};
 			};
 		};
@@ -103,12 +103,26 @@ class CfgVehicles {
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Spawns units in random building positions.";
-			sync[] = {"LocationArea_F"};
+			sync[] = {"LocationArea_F", "LocationBase_F"};
 
 			class LocationArea_F
 			{
 				description[] = { // Multi-line descriptions are supported
-					"CQB area, with independent unit combinations and positions."
+					"CQB area, with independent unit combinations and positions.",
+					"Positions will be of building positions of buildings inside the triggers."
+				};
+				position = 0; // Position is taken into effect
+				direction = 0; // Direction is taken into effect
+				optional = 0; // Synced entity is optional
+				duplicate = 1; // Multiple entities of this type can be synced
+				sync[] = {"EmptyDetector", "AnyAI"};
+			};
+
+			class LocationBase_F
+			{
+				description[] = { // Multi-line descriptions are supported
+					"CQB area, with independent unit combinations and positions.",
+					"Positions will be of random places in the triggers."
 				};
 				position = 0; // Position is taken into effect
 				direction = 0; // Direction is taken into effect

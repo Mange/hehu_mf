@@ -24,7 +24,58 @@ CQB spawner spawns units in certain areas. Areas are marked using `Area` or `Bas
 
 Synchronize units to the specific areas and the unit types will be randomized between them. Placing 1 Civilian, 1 OPFOR Officer and 2 OPFOR Riflemen means that at any given location there's a 25% chance of a civilian, 25% of an officer, and 50% chance of a rifleman.
 
-**TODO:** The CQB Spawner can be configured by mission parameters or by your mission's `init.sqf`.
+A single spawner can have multiple areas with different unit loadouts, and each area can have several triggers synchronized.
+
+#### Configuring from mission parameters
+
+You can change CQB module settings by including mission parameters in your `description.ext`:
+
+```hpp
+class Params
+{
+  #include "\hehu_mf\CQB_Params.hpp"
+
+  #include "\a3\functions_f\Params\paramWeather.hpp"
+  #include "\a3\functions_f\Params\paramDaytimePeriod.hpp"
+};
+```
+
+Your mission will then get parameters for number of units and alertness. These options apply to each CQB spawner individually.
+
+If you want your own preset values / descriptions, you'll have to include the options explicitly:
+
+```hpp
+class Params
+{
+  class NumberOfUnits {
+    title = "Number of units";
+    texts[] = {"7", "10", "15", "20", "30", "40"};
+    values[] = {7, 10, 15, 20, 30, 40};
+    default = 20;
+  };
+
+  class UnitAlertness {
+    title = "Unit alertness";
+    texts[] = {"Stand still", "Respond to threats", "Some will patrol", "Most will patrol", "All will patrol"};
+    values[] = {0, 1, 2, 3, 4};
+    default = 0;
+  };
+};
+```
+
+#### Configuring from `init.sqf`
+
+You can change CQB module settings by using the following variables:
+
+* `HEHU_CQB_unit_count` -- The number of units on each CQB Spawner with "Use global config". 
+* `HEHU_CQB_alertness`
+  * `0`: "Stand still"
+  * `1`: "Respond to threats"
+  * `2`: "Some will patrol"
+  * `3`: "Most will patrol"
+  * `4`: "All will patrol"
+
+You could, for instance, set these depending on the player count or on the presence of other mods.
 
 ### Target counter
 
