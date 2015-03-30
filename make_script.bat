@@ -1,6 +1,7 @@
 @echo off
 if not defined build_dir goto :missing_variables
 
+del /s /q "%build_dir%\hehu_mf\"
 mkdir "%build_dir%\hehu_mf\functions"
 
 pushd %tools_dir%\binmake
