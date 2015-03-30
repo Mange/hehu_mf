@@ -16,11 +16,13 @@ copy "%source_dir%\functions\" "%build_dir%\hehu_mf\functions"
 
 @echo off
 mkdir "%target_dir%\@hehu_mf\addons"
+mkdir "%target_dir%\@hehu_mf\images"
 
 @echo on
 copy "%build_dir%\hehu_mf.pbo" "%target_dir%\@hehu_mf\addons"
 copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_mf"
 copy "%source_dir%\README.md" "%target_dir%\@hehu_mf\readme.txt"
+copy "%source_dir%\images" "%target_dir%\@hehu_mf\images\"
 
 exit 0
 
