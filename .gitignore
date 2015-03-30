@@ -1,2 +1,4 @@
 build
 make.bat
+*.sublime-project
+*.sublime-workspace
