@@ -17,8 +17,9 @@ for "_i" from 0 to (_numberOfEnemies - 1) do {
     _position = _spawn select 0;
     _soldierType = _spawn select 1;
     _patrolPositions = _spawn select 2;
+    _placementSpecial = [_spawn, 3, "NONE", [""]] call BIS_fnc_param;
 
-    _unit = [_soldierType, _position] call HEHU_MF_fnc_spawnCQBUnit;
+    _unit = [_soldierType, _position, _placementSpecial] call HEHU_MF_fnc_spawnCQBUnit;
     _unit setCombatMode _enemyCombatMode;
 
     if (_i < _enemyPatrols) then {

@@ -1,6 +1,7 @@
-private ["_type", "_position", "_side", "_group", "_unit", "_direction"];
+private ["_type", "_position", "_side", "_group", "_unit", "_direction", "_special"];
 _type = [_this, 0, "O_soldier_F", [""]] call BIS_fnc_param;
 _position = [_this, 1, [0, 0, 0], [[]], [2,3]] call BIS_fnc_param;
+_special = [_this, 2, "NONE", [""]] call BIS_fnc_param;
 
 _side = [(configfile >> "CfgVehicles" >> _type), "side", 0] call BIS_fnc_returnConfigEntry;
 _side = switch(_side) do {
@@ -12,6 +13,6 @@ _side = switch(_side) do {
 };
 
 _group = createGroup _side;
-_unit = _group createUnit [_type, _position, [], 0, "CAN_COLLIDE"];
+_unit = _group createUnit [_type, _position, [], 0, _special];
 
 _unit;

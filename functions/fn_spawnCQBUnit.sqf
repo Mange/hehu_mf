@@ -12,4 +12,4 @@ _unit setDir _direction; // Turn the unit in the same direction
 // Cargo culted:
 _unit setPos getPos _unit; // Setting position synchronizes over to MP clients
 
-_unit;
+_unit

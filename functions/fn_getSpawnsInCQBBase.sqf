@@ -21,5 +21,5 @@ _positions = _triggers call HEHU_MF_fnc_findBuildingPositions;
 		(_positions call BIS_fnc_selectRandom)
 	];
 
-	[_position, _unitType, _patrolPositions]
+	[_position, _unitType, _patrolPositions, "CAN_COLLIDE"]
 }] call CBA_fnc_filter

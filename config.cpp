@@ -369,6 +369,7 @@ class CfgFunctions {
 					position, <Normal position for where to spawn>
 					unit_type, <"O_Soldier_F", for example>
 					[position...], <array of Positions to patrol>
+					placement Special, <"NONE" (default), "NO_COLLIDE", "FORM", "FLYING">
 				]
 			Multiple "Spawnees" are called "Spawns".
 			*/
