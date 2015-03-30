@@ -12,7 +12,7 @@ _units = [];
 
 {
 	if (_x isKindOf "Man") then {
-		_units = _units + [typeOf _x];
+		_units pushBack [typeOf _x];
 		deleteVehicle _x;
 	};
 } foreach (synchronizedObjects _gameLogic);

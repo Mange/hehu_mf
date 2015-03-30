@@ -11,7 +11,7 @@ _triggers = [(synchronizedObjects _logic), { _x isKindOf "EmptyDetector" }] call
 _positions = [];
 {
 	for "_i" from 1 to _count do {
-		_positions = _positions + [([_x] call BIS_fnc_randomPosTrigger)];
+		_positions pushBack ([_x] call BIS_fnc_randomPosTrigger);
 	};
 } foreach _triggers;
 

@@ -98,9 +98,9 @@ _activationPass = {
 	if (_moduleActivated) then {
 		{
 			if (_x call _unitFilter) then {
-				_activatedUnits = _activatedUnits + [_x];
+				_activatedUnits pushBack [_x];
 			} else {
-				_otherUnits = _otherUnits + [_x];
+				_otherUnits pushBack [_x];
 			};
 		} forEach allunits;
 	};
