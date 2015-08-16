@@ -410,6 +410,25 @@ class CfgFunctions {
 
 			/* Automatic end game module */
 			class moduleAutomaticEndGame{}; // End the game when aliveEnemies are 0.
+
+		};
+	};	
+
+	/* Auto-zeus stuff */
+	class HEHU_MF_AutoZeus
+	{
+		tag = "HEHU_MF_AutoZeus";
+		class HEHU_MF_AutoZeus_funcs
+		{
+			file = "hehu_mf\functions\auto_zeus";
+
+			class makeMeZeus{};
+			class askServerForZeus{};
+			class tellClientsAboutZeus{};
+			
+			class init {
+				postInit = 1
+			};
 		};
 	};
 };

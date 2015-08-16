@@ -13,6 +13,10 @@ HEHU Mission Framework is a mod that contains modules that can help you build mo
 	* **Automatic end game** ends the game automatically when all enemies are dead.
 * **Assets**
 	* Ammo box with Virtual Armory and no vanilla inventory.
+* **Autozeus**
+  * Allows you and any other player to become Zeus on every mission, vanilla or otherwise.
+  * We play in a closed group, so I'm not afraid of abuse.
+  * Requires ACE3.
 
 ## Usage
 
