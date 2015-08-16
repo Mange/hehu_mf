@@ -12,7 +12,7 @@ popd
 
 @echo on
 copy "%source_dir%\CQB_Params.hpp" "%build_dir%\hehu_mf\"
-copy "%source_dir%\functions\" "%build_dir%\hehu_mf\functions"
+xcopy /E "%source_dir%\functions" "%build_dir%\hehu_mf\functions"
 
 "%tools_dir%\filebank\filebank.exe" -property prefix=hehu_mf "%build_dir%\hehu_mf"
 
@@ -24,7 +24,7 @@ mkdir "%target_dir%\@hehu_mf\images"
 copy "%build_dir%\hehu_mf.pbo" "%target_dir%\@hehu_mf\addons"
 copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_mf"
 copy "%source_dir%\README.md" "%target_dir%\@hehu_mf\readme.txt"
-copy "%source_dir%\images" "%target_dir%\@hehu_mf\images\"
+xcopy /E "%source_dir%\images" "%target_dir%\@hehu_mf\images"
 
 exit 0
 
