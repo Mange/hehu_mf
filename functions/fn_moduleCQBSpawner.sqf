@@ -1,9 +1,9 @@
 private ["_logic", "_activated", "_bases", "_areas", "_settings", "_spawns"];
 
-_logic     = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_activated = [_this, 2, true, [true]] call BIS_fnc_param;
+_logic     = param [0, objNull, [objNull]];
+_activated = param [2, true, [true]];
 
-if (_activated) then {
+if (!(isNull _logic) && _activated) then {
 	_bases = [(synchronizedObjects _logic), { _x isKindOf "LocationBase_F" }] call CBA_fnc_select;
 	_areas = [(synchronizedObjects _logic), { _x isKindOf "LocationArea_F" }] call CBA_fnc_select;
 
