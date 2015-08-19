@@ -24,7 +24,7 @@ mkdir "%target_dir%\@hehu_mf\images"
 copy "%build_dir%\hehu_mf.pbo" "%target_dir%\@hehu_mf\addons"
 copy "%source_dir%\mod.cpp" "%target_dir%\@hehu_mf"
 copy "%source_dir%\README.md" "%target_dir%\@hehu_mf\readme.txt"
-xcopy /E "%source_dir%\images" "%target_dir%\@hehu_mf\images"
+xcopy /E /Y "%source_dir%\images" "%target_dir%\@hehu_mf\images"
 
 exit 0
 
