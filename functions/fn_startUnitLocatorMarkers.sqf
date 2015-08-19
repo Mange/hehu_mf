@@ -98,9 +98,9 @@ _activationPass = {
 	if (_moduleActivated) then {
 		{
 			if (_x call _unitFilter) then {
-				_activatedUnits pushBack [_x];
+				_activatedUnits pushBack _x;
 			} else {
-				_otherUnits pushBack [_x];
+				_otherUnits pushBack _x;
 			};
 		} forEach allunits;
 	};
@@ -110,7 +110,7 @@ _activationPass = {
 
 	if (_activated) then {
 		// Create markers where they don't exist.
-		{ _markers = [_x, _markers] call _createMarker; } forEach _activatedUnits;
+		{ [_x, _markers] call _createMarker; } forEach _activatedUnits;
 
 		// Markers will be cleaned up from the _markers array in the garbage collection phase after being destroyed here.
 		{ [_x] call _cleanupMarker; } forEach _otherUnits;
@@ -199,10 +199,9 @@ _createMarker = {
 		_marker = [_unit] call _createNewUnitMarker;
 		_unit setVariable [_markerVariableName, _marker];
 
-		_markers + [[_marker, _unit]];
+		_markers pushBack [_marker, _unit];
 	} else {
 		// Marker already exists; don't change the collection.
-		_markers
 	};
 };
 
