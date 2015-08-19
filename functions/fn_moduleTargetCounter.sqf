@@ -1,8 +1,8 @@
 private ["_logic", "_units", "_activated", "_refreshInterval", "_precision", "_autoHide"];
 
-_logic = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_units = [_this, 1, [], [[]]] call BIS_fnc_param;
-_activated = [_this, 2, true, [true]] call BIS_fnc_param;
+_logic     = param [0, objNull, [objNull]];
+_units     = param [1, [], [[]] ];
+_activated = param [2, true, [true]];
 
 if (_activated) then {
 	// Only players should see this at all!
@@ -21,6 +21,4 @@ if (_activated) then {
 	};
 };
 
-// Module function is executed by spawn command, so returned value is not necessary.
-// However, it's a good practice to include one.
 true

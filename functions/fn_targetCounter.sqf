@@ -1,8 +1,8 @@
 private ["_totalEnemies", "_refreshInterval", "_precision", "_autoHide", "_showHint", "_showTargetCounter"];
 
-_refreshInterval = [_this, 0, 2, [1.0]] call BIS_fnc_param;
-_precision       = [_this, 1, 1, [1]] call BIS_fnc_param;
-_autoHide        = [_this, 2, false, [false]] call BIS_fnc_param;
+_refreshInterval = param [0, 2, [1.0]];
+_precision       = param [1, 1, [1]];
+_autoHide        = param [2, false, [false]];
 
 _showText = {
 	hintSilent parseText format _this;

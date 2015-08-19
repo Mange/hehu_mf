@@ -1,7 +1,7 @@
 private ["_type", "_position", "_side", "_group", "_unit", "_direction", "_special"];
-_type = [_this, 0, "O_soldier_F", [""]] call BIS_fnc_param;
-_position = [_this, 1, [0, 0, 0], [[]], [2,3]] call BIS_fnc_param;
-_special = [_this, 2, "NONE", [""]] call BIS_fnc_param;
+_type     = param [0, "O_soldier_F", [""]];
+_position = param [1, [0, 0, 0], [[]], [2,3]];
+_special  = param [2, "NONE", [""]];
 
 _side = [(configfile >> "CfgVehicles" >> _type), "side", 0] call BIS_fnc_returnConfigEntry;
 _side = switch(_side) do {

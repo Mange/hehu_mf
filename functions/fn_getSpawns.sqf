@@ -6,21 +6,17 @@ _areas    = _this select 2;
 
 // Load spawnees for bases (positions inside the buildings inside the triggers)
 // Bases get all available building positions.
-_spawns = [
-	_bases, [],
-	{
-		_accumulator + (_x call HEHU_MF_fnc_getSpawnsInCQBBase)
-	}
-] call CBA_fnc_inject;
+_spawns = [];
+
+{
+	_spawns append (_x call HEHU_MF_fnc_getSpawnsInCQBBase)
+} foreach _bases;
 
 // Load spawnees for areas (random positions inside the triggers)
 // Areas get as many positions as we should spawn in total, per trigger area.
-_count = _settings select 0;
-_spawns = [
-	_areas, _spawns,
-	{
-		_accumulator + ([_x, _count] call HEHU_MF_fnc_getSpawnsInCQBArea)
-	}
-] call CBA_fnc_inject;
+_count	= _settings select 0;
+{
+   _spawns append ([_x, _count] call HEHU_MF_fnc_getSpawnsInCQBArea)
+} foreach _areas;
 
 [_spawns] call CBA_fnc_shuffle

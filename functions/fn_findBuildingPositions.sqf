@@ -7,7 +7,6 @@ _positions = [];
 	{
 		_positions append ([_x] call BIS_fnc_buildingPositions);
 	} foreach _buildingsInTrigger;
-
 } foreach (_triggers);
 
 _positions

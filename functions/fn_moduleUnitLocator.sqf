@@ -1,8 +1,8 @@
 private ["_logic", "_players", "_activated", "_moduleActivated"];
 
-_logic = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_players = [_this, 1, [], [[]]] call BIS_fnc_param;
-_activated = [_this, 2, true, [true]] call BIS_fnc_param;
+_logic     = param [0, objNull, [objNull]];
+_players   = param [1, [], [[]]];
+_activated = param [2, true, [true]];
 
 /*
 In order to support this module becoming deactivated after the fact, and then activated again, we'll spawn a script in the
