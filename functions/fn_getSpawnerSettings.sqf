@@ -1,7 +1,7 @@
 private ["_logic", "_numberOfUnits", "_alertnessNumber", "_combatMode", "_patrols"];
 _logic = param [0, objNull, [objNull]];
 
-if (_logic) then {
+if (!isNull _logic) then {
 	/* Read number of enemies */
 	_numberOfUnits = (_logic getVariable "NumberOfUnits");
 
