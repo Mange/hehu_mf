@@ -24,11 +24,10 @@ private [
 	"_logic", // Module entity; we need it to see if the module becomes deactivated later.
 	"_uuid", // Randomly generated ID for namespacing global names (markers, unit variables, etc.)
 
-	// Settings from the module, parsed and ready.
+	// Settings from the module, parsed and ready. _precision will be marker radius in meters.
 	"_precision", "_interval", "_numberOfUnits", "_unitFilter",
 
-	"_radius", // Radius of the marker (depends on _precision).
-	"_randomization", // Randomization for non-exact precisions (depends on _radius).
+	"_randomization", // Randomization for non-exact precisions (depends on _precision).
 
 	"_markerVariableName", // Variable name where this script puts markers on units.
 
@@ -55,15 +54,7 @@ _unitFilter    = _this select 5;
 _uuid = format ["%1-%2", _logic, random 5000];
 _markerVariableName = format["%1-marker", _uuid];
 
-_radius = switch(_precision) do {
-	case 1: { 0 }; // Exact
-	case 2: { 2 }; // Accurate
-	case 3: { 8 }; // Inaccurate
-	case 4: { 20 }; // Very inaccurate
-	default { 0 };
-};
-
-_randomization = _radius * 0.4;
+_randomization = _precision * 0.4;
 
 /// Methods ///
 
@@ -164,7 +155,7 @@ _createNewUnitMarker = {
 	_markerOutline = format["%1-%2-marker_outline", _uuid, _unit];
 	_position = position _unit;
 
-	if (_radius > 0) then {
+	if (_precision > 0) then {
 		_position = [_position, _randomization] call HEHU_MF_fnc_randomizePosition;
 	};
 
@@ -175,10 +166,10 @@ _createNewUnitMarker = {
 
 	_unit setVariable ["hehu_unit_marker", _marker];
 
-	if (_radius > 0) then {
+	if (_precision > 0) then {
 		createMarkerLocal [_markerOutline, _position];
 		_markerOutline setMarkerShapeLocal "ELLIPSE";
-		_markerOutline setMarkerSizeLocal [_radius, _radius];
+		_markerOutline setMarkerSizeLocal [_precision, _precision];
 		_markerOutline setMarkerBrushLocal "SolidBorder";
 		_markerOutline setMarkerColorLocal _color;
 		_markerOutline setMarkerAlphaLocal 0.4;
@@ -222,7 +213,7 @@ _cleanupMarker = {
 
 		deleteMarkerLocal _marker;
 		// Delete outline marker if activated
-		if (_radius > 0) then { deleteMarkerLocal format["%1_outline", _marker]; };
+		if (_precision > 0) then { deleteMarkerLocal format["%1_outline", _marker]; };
 	};
 };
 
@@ -233,9 +224,9 @@ _updateMarkerPosition = {
 	_unit = _this select 1;
 
 	// If we have radius activated, the marker should only be moved when the unit leaves the radius.
-	if (_radius > 0) then {
+	if (_precision > 0) then {
 		_outline = format["%1_outline", _marker];
-		_isOutsideRadius = (getMarkerPos _outline) distance _unit > _radius;
+		_isOutsideRadius = (getMarkerPos _outline) distance _unit > _precision;
 
 		if (_isOutsideRadius) then {
 			// Determine new position and randomize it a bit.

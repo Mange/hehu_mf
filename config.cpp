@@ -236,10 +236,17 @@ class CfgVehicles {
 				typeName = "NUMBER";
 				class values
 				{
-					class Exact          {name = "Exact"; value = 1;};
-					class Accurate       {name = "Accurate"; value = 2; default = 1};
-					class Inaccurate     {name = "Inaccurate"; value = 3;};
-					class VeryInaccurate {name = "Very inaccurate"; value = 4;};
+					/*
+						Note that the value is the RADIUS of the circle; "20m" precision sounds
+						like 20m DIAMETER so value is half that of the description says.
+						"I know you precision within 20 meters" sound like +- 10 meters, as the
+						search span is 20 meters.
+					*/
+					class Exact          {name = "Exact"; value = 0;};
+					class Accurate       {name = "Accurate (5m)"; value = 2.5; default = 1};
+					class Inaccurate     {name = "Inaccurate (20m)"; value = 10;};
+					class VeryInaccurate {name = "Very inaccurate (50m)"; value = 25;};
+					class WayOff         {name = "Way off (500m)"; value = 250;};
 				};
 			};
 			class RefreshInterval
