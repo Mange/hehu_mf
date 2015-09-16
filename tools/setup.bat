@@ -1,7 +1,5 @@
 @echo off
-
-set source_dir=%~dp0\..
-set arma3_dir=C:\Program Files (x86)\Steam\steamApps\common\Arma 3
+call variables.bat
 
 IF NOT EXIST P: GOTO NODRIVE
 IF NOT EXIST %arma3_dir% GOTO NOARMA3DIR

@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class HEHU_MF
+	class hehu_common
 	{
 		requiredVersion=1.0;
 		requiredAddons[]=
@@ -16,7 +16,7 @@ class CfgPatches
 			"HEHU_MF_ModuleTargetCounter",
 			"HEHU_MF_ModuleUnitLocator",
 			"HEHU_MF_ModuleAutomaticEndGame",
-			"HEHU_MF_ArsenalBox"	
+			"HEHU_MF_ArsenalBox"
 		};
 
 		author[] = {"Magnus Bergmark"};
@@ -99,7 +99,7 @@ class CfgVehicles {
 				};
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Spawns units in random building positions.";
@@ -130,7 +130,7 @@ class CfgVehicles {
 				duplicate = 1; // Multiple entities of this type can be synced
 				sync[] = {"EmptyDetector", "AnyAI"};
 			};
-	 
+
 			class EmptyDetector
 			{
 				description[] = {
@@ -142,7 +142,7 @@ class CfgVehicles {
 				optional = 0; // Synced entity is optional
 				duplicate = 1; // Multiple entities of this type can be synced
 			};
-		};	
+		};
 	};
 
 	class HEHU_MF_ModuleTargetCounter: HEHU_MF_Module
@@ -200,12 +200,12 @@ class CfgVehicles {
 				defaultValue = false;
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Shows number of enemies left to synchronized (or all) players.";
 			sync[] = {"AnyPlayer"};
-		};	
+		};
 	};
 
 	class HEHU_MF_ModuleUnitLocator: HEHU_MF_Module
@@ -303,12 +303,12 @@ class CfgVehicles {
 				};
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Shows alive units to synchronized (or all) players.";
 			sync[] = {"AnyPlayer"};
-		};	
+		};
 	};
 
 	class HEHU_MF_ModuleAutomaticEndGame: HEHU_MF_Module
@@ -326,12 +326,12 @@ class CfgVehicles {
 
 		isTriggerActivated = 1;
 		isDisposable = 1;
-	
+
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Ends the mission when all enemies are dead (and optional triggers are activated).";
 			sync[] = {};
-		};	
+		};
 	};
 
 	class HEHU_MF_ArsenalBox: thingX
@@ -368,7 +368,7 @@ class CfgFunctions {
 		tag = "HEHU_MF";
 		class HEHU_MF_funcs
 		{
-			file = "hehu_mf\functions";
+			file = "\z\hehu\addons\common\functions";
 
 			/* Utilities */
 			class aliveEnemies{};          // Number of alive units that local player is unfriendly to.
@@ -410,7 +410,7 @@ class CfgFunctions {
 			class moduleTargetCounter{}; // Read target counter options and call it.
 			class targetCounter{};       // Display the actual target counter.
 
-			/* Unit locator module */			
+			/* Unit locator module */
 			class moduleUnitLocator{}; // Read unit locator options and start it.
 			class startUnitLocator{}; // Show position of units.
 			class startUnitLocatorMarkers{}; // Show position of units using map markers.
@@ -418,24 +418,6 @@ class CfgFunctions {
 			/* Automatic end game module */
 			class moduleAutomaticEndGame{}; // End the game when aliveEnemies are 0.
 
-		};
-	};	
-
-	/* Auto-zeus stuff */
-	class HEHU_MF_AutoZeus
-	{
-		tag = "HEHU_MF_AutoZeus";
-		class HEHU_MF_AutoZeus_funcs
-		{
-			file = "hehu_mf\functions\auto_zeus";
-
-			class makeMeZeus{};
-			class askServerForZeus{};
-			class tellClientsAboutZeus{};
-			
-			class init {
-				postInit = 1
-			};
 		};
 	};
 };
