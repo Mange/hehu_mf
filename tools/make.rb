@@ -2,6 +2,8 @@ require "pathname"
 source_path = File.expand_path("../..", __FILE__)
 
 Pathname.glob("#{source_path}/addons/*").select(&:directory?).each do |dir|
+	next if dir.basename == "blank"
+
 	unless system(
 		"makepbo",
 		"-NUP",

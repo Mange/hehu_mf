@@ -71,7 +71,7 @@ class Params
 
 You can change CQB module settings by using the following variables:
 
-* `HEHU_CQB_unit_count` -- The number of units on each CQB Spawner with "Use global config". 
+* `HEHU_CQB_unit_count` -- The number of units on each CQB Spawner with "Use global config".
 * `HEHU_CQB_alertness`
   * `0`: "Stand still"
   * `1`: "Respond to threats"
@@ -124,6 +124,14 @@ Unit locator shows the position of units on the map.
 ### Automatic end game
 
 Ends the game when no more enemies exist. Very simple, but speeds up the process of adding victory conditions to small-scale missions.
+
+## Development
+
+### Adding a new module
+
+1. Copy the `addons\blank` directory to `addons\<your name>`.
+2. Open the `$PBOPREFIX$` file and adjust the name.
+3. Open the `config.cpp` file and adjust the mod name.
 
 ## Copyright / License
 
