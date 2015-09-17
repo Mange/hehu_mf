@@ -131,7 +131,7 @@ Ends the game when no more enemies exist. Very simple, but speeds up the process
 
 1. Copy the `addons\blank` directory to `addons\<your name>`.
 2. Open the `$PBOPREFIX$` file and adjust the name.
-3. Open the `config.cpp` file and adjust the mod name.
+3. Open the `script_component.hpp` file and adjust the component name.
 
 ## Copyright / License
 

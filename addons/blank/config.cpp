@@ -1,9 +1,8 @@
-/*
-Update this file for your new module!
-*/
+#include "script_component.hpp"
+
 class CfgPatches
 {
-	class hehu_blank
+	class ADDON
 	{
 		requiredVersion=1.0;
 		requiredAddons[]=
@@ -16,8 +15,6 @@ class CfgPatches
 		author[] = {"<Your name>"};
 		authorUrl = "https://github.com/<your username on GH>";
 
-		version = 1.0.0;
-		versionStr = "1.0.0";
-		versionAr[] = {1,0,0};
+		VERSION_CONFIG;
 	};
 };

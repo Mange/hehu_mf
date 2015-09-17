@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class hehu_autozeus
+	class ADDON
 	{
 		requiredVersion=1.0;
 		requiredAddons[]=
@@ -16,9 +16,7 @@ class CfgPatches
 		author[] = {"Magnus Bergmark"};
 		authorUrl = "https://github.com/Mange";
 
-		version = 1.1.1;
-		versionStr = "1.1.1";
-		versionAr[] = {1,1,1};
+		VERSION_CONFIG;
 	};
 };
 
