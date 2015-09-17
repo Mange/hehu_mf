@@ -11,7 +11,8 @@ Pathname.glob("#{source_path}/addons/*").select(&:directory?).each do |dir|
 		dir.to_s,
 		"#{dir.dirname}/hehu_#{dir.basename}.pbo"
 	)
-		puts "PBO failed!"
+		puts "PBO failed! Press enter to close window."
+		gets
 		exit 1
 	end
 end

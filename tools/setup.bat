@@ -7,7 +7,6 @@ IF NOT EXIST P: GOTO NODRIVE
 IF NOT EXIST "%arma3_dir%" GOTO NOARMA3DIR
 echo "Run this script as administrator!"
 
-
 mkdir P:\z
 mkdir "%arma3_dir%\z"
 
