@@ -1,13 +1,15 @@
 @echo off
+@setlocal enableextensions
+@cd /d "%~dp0"
 call variables.bat
 
 IF NOT EXIST P: GOTO NODRIVE
-IF NOT EXIST %arma3_dir% GOTO NOARMA3DIR
+IF NOT EXIST "%arma3_dir%" GOTO NOARMA3DIR
+echo "Run this script as administrator!"
+
 
 mkdir P:\z
 mkdir "%arma3_dir%\z"
-
-echo "Run this script as administrator!"
 
 mklink /D "%arma3_dir%\z\hehu" "%source_dir%"
 mklink /D "P:\z\hehu" "%source_dir%"
