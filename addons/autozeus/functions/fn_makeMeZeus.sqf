@@ -1,5 +1,1 @@
-[
-	[player],
-	"HEHU_MF_AutoZeus_fnc_askServerForZeus",
-	false
-] call BIS_fnc_MP;
+[player] remoteExec ["HEHU_AutoZeus_fnc_askServerForZeus", 2, false];

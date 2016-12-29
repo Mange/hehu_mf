@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 class CfgPatches
 {
 	class ADDON
@@ -21,8 +23,8 @@ class CfgPatches
 };
 
 
-class CfgFunctions {
-	/* Auto-zeus stuff */
+class CfgFunctions
+{
 	class HEHU_MF_AutoZeus
 	{
 		tag = "HEHU_AutoZeus";
@@ -37,6 +39,21 @@ class CfgFunctions {
 			class init {
 				postInit = 1
 			};
+		};
+	};
+};
+
+class CfgRemoteExec
+{
+	class Functions
+	{
+		class HEHU_AutoZeus_fnc_tellClientsAboutZeus
+		{
+			allowedTargets = 0; // Anyone
+		};
+		class HEHU_AutoZeus_fnc_askServerForZeus
+		{
+			allowedTargets = 2; // Server only
 		};
 	};
 };

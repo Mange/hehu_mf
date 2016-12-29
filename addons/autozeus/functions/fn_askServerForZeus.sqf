@@ -11,5 +11,5 @@ if (!isNil "_player") then {
 	_module setVariable ["owner", _player call bis_fnc_objectvar];
 	_module setVariable ["Addons", 3]; // All (including unofficial ones)
 
-	[[name _player], "HEHU_MF_AutoZeus_fnc_tellClientsAboutZeus", true] call BIS_fnc_MP;
+	[name _player] remoteExec ["HEHU_AutoZeus_fnc_tellClientsAboutZeus", 1, true];
 }
