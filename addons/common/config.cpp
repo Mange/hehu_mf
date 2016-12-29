@@ -21,7 +21,7 @@ class CfgPatches
 			"HEHU_MF_ArsenalBox"
 		};
 
-		author[] = {"Magnus Bergmark"};
+		author = "Magnus Bergmark";
 		authorUrl = "https://github.com/Mange";
 
 		VERSION_CONFIG;

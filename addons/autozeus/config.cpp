@@ -15,7 +15,7 @@ class CfgPatches
 
 		units[] = {};
 
-		author[] = {"Magnus Bergmark"};
+		author = "Magnus Bergmark";
 		authorUrl = "https://github.com/Mange";
 
 		VERSION_CONFIG;

@@ -12,7 +12,7 @@ class CfgPatches
 
 		units[] = {};
 
-		author[] = {"<Your name>"};
+		author = "<Your name>";
 		authorUrl = "https://github.com/<your username on GH>";
 
 		VERSION_CONFIG;
