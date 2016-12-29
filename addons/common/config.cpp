@@ -7,12 +7,10 @@ class CfgPatches
 		requiredVersion=1.0;
 		requiredAddons[]=
 		{
-			"A3_Weapons_F_Ammoboxes"
+			"cba_main"
 		};
 
-		units[] = {
-			"HEHU_MF_ArsenalBox"
-		};
+		units[] = {};
 
 		author = "Magnus Bergmark";
 		authorUrl = "https://github.com/Mange";
@@ -30,5 +28,3 @@ class CfgFactionClasses
 		displayName = "HEHU Mission Framework";
 	};
 };
-
-#include "CfgVehicles.hpp"

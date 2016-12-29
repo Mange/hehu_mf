@@ -7,9 +7,8 @@ class CfgPatches
 		requiredVersion=1.0;
 		requiredAddons[]=
 		{
-			"hehu_common",
 			"A3_Modules_F",
-			"cba_main"
+			"hehu_common"
 		};
 
 		units[] = {

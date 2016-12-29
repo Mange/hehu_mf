@@ -1,3 +1,27 @@
+#include "script_component.hpp"
+
+class CfgPatches
+{
+	class ADDON
+	{
+		requiredVersion=1.0;
+		requiredAddons[]=
+		{
+			"A3_Weapons_F_Ammoboxes",
+			"hehu_common"
+		};
+
+		units[] = {
+			"HEHU_MF_ArsenalBox"
+		};
+
+		author = "Magnus Bergmark";
+		authorUrl = "https://github.com/Mange";
+
+		VERSION_CONFIG;
+	};
+};
+
 class CfgVehicles {
 	class thingX;
 	class HEHU_MF_ArsenalBox: thingX
