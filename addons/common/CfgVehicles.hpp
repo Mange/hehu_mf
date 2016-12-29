@@ -31,7 +31,7 @@ class CfgVehicles {
 		isGlobal = 0;
 
 		isTriggerActivated = 0;
-		isDisposable = 1;
+		isDisposable = 0;
 
 		class Arguments
 		{
@@ -118,7 +118,7 @@ class CfgVehicles {
 		isGlobal = 2;
 
 		isTriggerActivated = 0;
-		isDisposable = 1;
+		isDisposable = 0;
 
 		class Arguments: ArgumentsBaseUnits
 		{
@@ -284,7 +284,7 @@ class CfgVehicles {
 		isGlobal = 2;
 
 		isTriggerActivated = 1;
-		isDisposable = 1;
+		isDisposable = 0;
 
 		class ModuleDescription: ModuleDescription
 		{
