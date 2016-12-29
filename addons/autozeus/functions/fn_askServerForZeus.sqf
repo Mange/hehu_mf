@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 // run this on the server!
 
 private ["_player", "_module"];
@@ -11,5 +13,5 @@ if (!isNil "_player") then {
 	_module setVariable ["owner", _player call bis_fnc_objectvar];
 	_module setVariable ["Addons", 3]; // All (including unofficial ones)
 
-	[name _player] remoteExec ["HEHU_AutoZeus_fnc_tellClientsAboutZeus", 1, true];
+	[name _player] remoteExec [QFUNC(tellClientsAboutZeus), 1, true];
 }

@@ -1,1 +1,3 @@
-[player] remoteExec ["HEHU_AutoZeus_fnc_askServerForZeus", 2, false];
+#include "script_component.hpp"
+
+[player] remoteExec [QFUNC(askServerForZeus), 2, false];

@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 /*
 Unit markers are updated using three passes:
 	- Activation pass
@@ -156,7 +158,7 @@ _createNewUnitMarker = {
 	_position = position _unit;
 
 	if (_precision > 0) then {
-		_position = [_position, _randomization] call HEHU_MF_fnc_randomizePosition;
+		_position = [_position, _randomization] call DFUNC(randomizePosition);
 	};
 
 	createMarkerLocal [_marker, _position];
@@ -230,7 +232,7 @@ _updateMarkerPosition = {
 
 		if (_isOutsideRadius) then {
 			// Determine new position and randomize it a bit.
-			_newPosition = [position _unit, _randomization] call HEHU_MF_fnc_randomizePosition;
+			_newPosition = [position _unit, _randomization] call DFUNC(randomizePosition);
 			_marker setMarkerPosLocal _newPosition;
 			_outline setMarkerPosLocal _newPosition;
 		};

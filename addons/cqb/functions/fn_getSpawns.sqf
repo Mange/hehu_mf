@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_settings", "_bases", "_areas", "_spawns", "_count"];
 
 _settings = _this select 0;
@@ -9,14 +11,14 @@ _areas    = _this select 2;
 _spawns = [];
 
 {
-	_spawns append (_x call HEHU_MF_fnc_getSpawnsInCQBBase)
+	_spawns append (_x call DFUNC(getSpawnsInCQBBase))
 } foreach _bases;
 
 // Load spawnees for areas (random positions inside the triggers)
 // Areas get as many positions as we should spawn in total, per trigger area.
 _count	= _settings select 0;
 {
-   _spawns append ([_x, _count] call HEHU_MF_fnc_getSpawnsInCQBArea)
+   _spawns append ([_x, _count] call DFUNC(getSpawnsInCQBArea))
 } foreach _areas;
 
 [_spawns] call CBA_fnc_shuffle

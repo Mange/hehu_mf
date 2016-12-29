@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_logic", "_numberOfUnits", "_alertnessNumber", "_combatMode", "_patrols"];
 _logic = param [0, objNull, [objNull]];
 

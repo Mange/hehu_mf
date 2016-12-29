@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_logic", "_players", "_activated", "_moduleActivated"];
 
 _logic     = param [0, objNull, [objNull]];
@@ -36,7 +38,7 @@ if (isNil "_moduleActivated") then {
 			case 2: { { isPlayer _x } };
 
 			// Enemies
-			case 3: { { _x call HEHU_MF_fnc_isEnemyToPlayer } };
+			case 3: { { _x call DFUNC(isEnemyToPlayer) } };
 
 		 	// Civilians
 			case 4: { { side _x == civilian } };
@@ -56,6 +58,6 @@ if (isNil "_moduleActivated") then {
 			default { { true } };
 		};
 
-		[_logic, _type, _precision, _interval, _numberOfUnits, _unitFilter] spawn HEHU_MF_fnc_startUnitLocator;
+		[_logic, _type, _precision, _interval, _numberOfUnits, _unitFilter] spawn DFUNC(startUnitLocator);
 	};
 };

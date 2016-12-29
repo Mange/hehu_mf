@@ -1,6 +1,8 @@
+#include "script_component.hpp"
+
 private ["_unit", "_direction"];
 
-_unit = _this call HEHU_MF_fnc_spawnUnit;
+_unit = _this call DFUNC(spawnUnit);
 
 _unit setBehaviour "COMBAT"; // Ready weapon
 _unit setUnitPos "UP"; // Force stand up

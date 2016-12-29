@@ -1,8 +1,10 @@
+#include "script_component.hpp"
+
 private ["_logic", "_count", "_soldierTypes", "_triggers", "_i", "_positions", "_position", "_unitType", "_patrolPositions"];
 _logic = _this select 0;
 _count = _this select 1;
 
-_soldierTypes = [_logic] call HEHU_MF_fnc_inferCQBUnits;
+_soldierTypes = [_logic] call DFUNC(inferCQBUnits);
 
 // Find triggers attached to this game logic
 _triggers = [(synchronizedObjects _logic), { _x isKindOf "EmptyDetector" }] call CBA_fnc_select;

@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_type", "_position", "_side", "_group", "_unit", "_direction", "_special"];
 _type     = param [0, "O_soldier_F", [""]];
 _position = param [1, [0, 0, 0], [[]], [2,3]];

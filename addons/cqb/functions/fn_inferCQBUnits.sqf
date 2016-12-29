@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 /*
  * Infer units to be placed by CQB module.
  * Do this by looking at the units synchronized to passed game logic and remove them from the mission.

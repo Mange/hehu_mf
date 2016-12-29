@@ -7,12 +7,19 @@ class CfgPatches
 		requiredVersion=1.0;
 		requiredAddons[]=
 		{
-			"A3_Weapons_F_Ammoboxes"
+			"hehu_common",
+			"A3_Modules_F",
+			"cba_main"
 		};
 
 		units[] = {
-			"HEHU_MF_ArsenalBox"
+			"HEHU_MF_Module",
+			"HEHU_MF_ModuleCQBSpawner",
+			"HEHU_MF_ModuleTargetCounter",
+			"HEHU_MF_ModuleUnitLocator",
+			"HEHU_MF_ModuleAutomaticEndGame"
 		};
+
 
 		author = "Magnus Bergmark";
 		authorUrl = "https://github.com/Mange";
@@ -21,14 +28,5 @@ class CfgPatches
 	};
 };
 
-/* Define module category */
-class CfgFactionClasses
-{
-	class NO_CATEGORY;
-	class HEHU_MF_Modules: NO_CATEGORY
-	{
-		displayName = "HEHU Mission Framework";
-	};
-};
-
+#include "CfgFunctions.hpp"
 #include "CfgVehicles.hpp"

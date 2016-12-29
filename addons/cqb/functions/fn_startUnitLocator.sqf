@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_type"];
 if (!hasInterface) exitWith {}; // Only players need to run this script.
 waitUntil {!isNull player}; // Wait for map to load first
@@ -19,5 +21,5 @@ if (_precision > 0 && _precision < 5) then {
 };
 
 switch(_type) do {
-	case 1: { _this spawn HEHU_MF_fnc_startUnitLocatorMarkers; };
+	case 1: { _this spawn DFUNC(startUnitLocatorMarkers); };
 };

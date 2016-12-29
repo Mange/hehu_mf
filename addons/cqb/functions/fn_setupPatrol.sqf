@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 // Pick a random position and add a waypoint there.
 private ["_unit", "_startingPosition", "_destination_1", "_destination_2", "_wp"];
 _unit = _this select 0;

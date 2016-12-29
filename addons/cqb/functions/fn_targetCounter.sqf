@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_totalEnemies", "_refreshInterval", "_precision", "_autoHide", "_showHint", "_showTargetCounter"];
 
 _refreshInterval = param [0, 2, [1.0]];
@@ -55,7 +57,7 @@ _showTargetCounter = switch(_precision) do {
 
 
 while {true} do {
-	_totalEnemies = [] call HEHU_MF_fnc_aliveEnemies;
+	_totalEnemies = [] call DFUNC(aliveEnemies);
 	_totalEnemies call _showTargetCounter;
 	if (_autoHide && _totalEnemies == 0) exitWith {};
 	sleep _refreshInterval;

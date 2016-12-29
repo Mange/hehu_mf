@@ -25,9 +25,9 @@ class CfgPatches
 
 class CfgFunctions
 {
-	class HEHU_MF_AutoZeus
+	class HEHU_AutoZeus
 	{
-		tag = "HEHU_AutoZeus";
+		tag = "hehu_autozeus";
 		class HEHU_AutoZeus_funcs
 		{
 			file = "\z\hehu\addons\autozeus\functions";
@@ -47,11 +47,11 @@ class CfgRemoteExec
 {
 	class Functions
 	{
-		class HEHU_AutoZeus_fnc_tellClientsAboutZeus
+		class DFUNC(tellClientsAboutZeus)
 		{
 			allowedTargets = 0; // Anyone
 		};
-		class HEHU_AutoZeus_fnc_askServerForZeus
+		class DFUNC(askServerForZeus)
 		{
 			allowedTargets = 2; // Server only
 		};

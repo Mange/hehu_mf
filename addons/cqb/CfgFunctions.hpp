@@ -1,10 +1,10 @@
 class CfgFunctions {
-	class HEHU_MF
+	class HEHU_CQB
 	{
-		tag = "HEHU_MF";
-		class HEHU_MF_funcs
+		tag = "hehu_cqb";
+		class HEHU_funcs
 		{
-			file = "\z\hehu\addons\common\functions";
+			file = "\z\hehu\addons\cqb\functions";
 
 			/* Utilities */
 			class aliveEnemies{};          // Number of alive units that local player is unfriendly to.
@@ -53,7 +53,6 @@ class CfgFunctions {
 
 			/* Automatic end game module */
 			class moduleAutomaticEndGame{}; // End the game when aliveEnemies are 0.
-
 		};
 	};
 };

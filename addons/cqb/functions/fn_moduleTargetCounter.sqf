@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_logic", "_units", "_activated", "_refreshInterval", "_precision", "_autoHide"];
 
 _logic     = param [0, objNull, [objNull]];
@@ -17,7 +19,7 @@ if (_activated) then {
 		_precision = (_logic getVariable "Precision");
 		_autoHide = (_logic getVariable "AutoHide");
 
-		[_refreshInterval, _precision, _autoHide] spawn HEHU_MF_fnc_targetCounter;
+		[_refreshInterval, _precision, _autoHide] spawn DFUNC(targetCounter);
 	};
 };
 

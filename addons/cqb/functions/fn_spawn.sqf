@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 private ["_spawns", "_settings", "_numberOfUnits", "_enemyPatrols", "_enemyCombatMode", "_spawn", "_position", "_soldierType", "_patrolPositions"];
 
 _spawns = _this select 0;
@@ -19,11 +21,11 @@ for "_i" from 0 to (_numberOfUnits - 1) do {
     _patrolPositions = _spawn select 2;
     _placementSpecial = _spawn param [3, "NONE", [""]];
 
-    _unit = [_soldierType, _position, _placementSpecial] call HEHU_MF_fnc_spawnCQBUnit;
+    _unit = [_soldierType, _position, _placementSpecial] call DFUNC(spawnCQBUnit);
     _unit setCombatMode _enemyCombatMode;
 
     if (_i < _enemyPatrols) then {
-    	[_unit, _position, _patrolPositions] call HEHU_MF_fnc_setupPatrol;
+    	[_unit, _position, _patrolPositions] call DFUNC(setupPatrol);
     };
 
     sleep 0.1;
