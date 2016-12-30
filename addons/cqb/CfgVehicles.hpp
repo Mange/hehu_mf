@@ -133,6 +133,7 @@ class CfgVehicles {
 				class values
 				{
 					class Exact		{name = "Exact (number of enemies)"; value = 1; default = 1};
+					class Approximate	{name = "Approximate (1-3, 4-7, etc.)"; value = 4; };
 					class Inexact	{name = "Inexact (few, many, etc.)"; value = 2;};
 					class Unhelpful	{name = "Unhelpful (enemies left, no enemies left)"; value = 3;};
 				};

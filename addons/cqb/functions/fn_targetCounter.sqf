@@ -25,6 +25,27 @@ _showTargetCounter = switch(_precision) do {
 			};
 		};
 	};
+	// Approximate
+	case 4: {
+		{
+			private ["_text", "_lower", "_upper", "_bucket_size"];
+			_text = "0";
+			_bucket_size = 3;
+
+			if (_this > 0 && _this < 22) then {
+				// For example: On 13 units and bucket size 3
+				// Lower = floor (13 / 3) * 3 = floor (4.33333) * 3 = 4 * 3 = 12
+				// Upper = 12 + 3 = 15
+				// Range is therefore 12-15 units.
+				_lower = floor (_this / _bucket_size) * _bucket_size;
+				_upper = _lower + _bucket_size;
+
+				_text = format["%1-%2", _lower, _upper];
+			};
+
+			[format ["<t color='#ff0000'>%1</t> ENEMY UNITS LEFT", _text]] call _showText;
+		};
+	};
 	// Inexact
 	case 2: {
 		{
